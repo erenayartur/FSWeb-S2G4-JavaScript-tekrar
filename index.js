@@ -38,10 +38,16 @@ const sayilar = [
 //Örneğin çözümü:
 function KareninAlani(kenaruzunlugu) {
   return kenaruzunlugu * kenaruzunlugu;
-}
+  }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+const kenarUzunlugu = 10
+function kareninAlani(kenarUzunlugu) {
+  return kenarUzunlugu * kenarUzunlugu;
+ 
+}
 
+console.log(kareninAlani(kenarUzunlugu))
 /* GÖREV 1:  
 - CemberinCevresi fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. CemberinCevresi fonksiyonu parametre olarak sadece çemberin yarıçapını alacaktır. 
@@ -49,13 +55,18 @@ function KareninAlani(kenaruzunlugu) {
 	3. Çemberin çevresi hesaplanacaktır (💡 İPUCU: Çemberin çevresi = 2 * pi * yarıçap)
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
-
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+const pi = 3.14159;
+function CemberinCevresi(yariCap) {
+return 2*yariCap*pi
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
+const pi = 3.14159;
+const yariCap = 5
+function CemberinCevresi(yariCap) {
+return 2*yariCap*pi
+} console.log(CemberinCevresi(yariCap))
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. Argüman olarak çemberin yarıçapını BİRİNCİ parametre olacak alacaktır. 
@@ -64,12 +75,17 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
-}
+function CemberinAlani(yariCap,pi) {
+  return pi*yariCap ** 2
+  }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+const pi = 3.14159;
+const yariCap = 15
+function CemberinAlani(yariCap,pi) {
+  return pi*yariCap ** 2
+  }
+console.log(CemberinAlani(yariCap,pi))
 /* 	GÖREV 3:
 	- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
 		3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki en küçük sayı ile en büyük sayıyı bu değişkenlere atayın. (for döngüsü kullanın)
@@ -98,28 +114,62 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
-
-/* kodlar buraya */
-
+const  sayilar = [1,2,3,4,5,6,7,8,9]
+let enBuyuk = sayilar[0]
+let enKucuk = sayilar[0]
+for (let i = 0 ; i < sayilar.length ; i++){
+  if (sayilar[i] > enBuyuk) {
+    enBuyuk = sayilar[i]
+  }
+}
+for (let i = 0 ; i < sayilar.length ; i++) {
+  if(sayilar[i] < enKucuk) {
+    enKucuk = sayilar[i]
+  }
+}
 // 3b çözümü:
-
+const ucetambolunenler = []
+sayilar.forEach(function(sayilar) {
+  if (sayilar % 3 === 0) {
+    ucetambolunenler.push(sayilar)
+  }
+});
 /* kodlar buraya */
 
 // 3c çözümü:
+const ucebolunenlerintoplami = 
+ucetambolunenler.reduce((toplam,yeni) => toplam + yeni,0);
 
-/* kodlar buraya */
 
 // 3d çözümü
 
-/* kodlar buraya */
+const hedefSayi = 500 ;
+const besyuzdenkucuksayilar[] = sayilar.filter(sayi => sayi < hedefSayi)
 
 // 3e çözümü
 
-/* kodlar buraya */
+const siralisayilar = [...besyuzdenkucuksayilar] ; 
+siralisayilar.sort((a,b) => a-b) ;
 
 // 3f çözümü
 
-/* kodlar buraya */
+const tekrarSayilari = {};
+
+
+for (let sayi of sayilar) {
+  if (tekrarSayilari[sayi]) {
+    tekrarSayilari[sayi] += 1; 
+  } else {
+    tekrarSayilari[sayi] = 1; 
+  }
+}
+
+
+let sonucString = '';
+for (let [sayi, tekrar] of Object.entries(tekrarSayilari)) {
+  sonucString += `${sayi} sayısı ${tekrar} kere tekrar edilmiştir.`;
+}
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
